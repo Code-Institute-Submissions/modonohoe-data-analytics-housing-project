@@ -1,57 +1,32 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Predicting Housing Prices 
 
-## Codeanywhere Template Instructions
+Introduction information
 
-Welcome,
+---
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Contents
+* [Dataset Content](#dataset-content) 🗃️
+* [Business Requirements](#business-requirements) 📋
+* [Hypothesis and How To Validate](#hypothesis-and-how-to-validate) 💡
+* [Rationale](#rationale) ✍
+* [ML Business Case](#ml-business-case) 📊
+* [Dashboard Design](#dashboard-design) 📐
+* [Unfixed Bugs](#unfixed-bugs) 🛠️
+* [Deployment](#deployment) 🖥️
+* [Data Analysis and ML Libraries](#data-analysis-and-ml-libraries) 📚
+* [Credits and Acknowledgments](#credits-and-acknowledgments) 💐
 
-You can safely delete the Codeanywhere Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Codeanywhere Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use. 
+## Dataset Content 🗃️
 
-## How to use this repo
+The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data). 
 
-1. Use this template to create your GitHub project repo
+The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profiles (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and their respective sale price. 
 
-1. Log into <a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">CodeAnywhere</a> with your GitHub account.
-
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
-
-1. In the terminal type <code>pip3 install jupyter</code>
-
-1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
-
-1. Open port 8888 preview or browser
-
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
-
-1. Click the button Not Trusted and choose Trust.
-
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
+The dataset includes data for houses built between 1872 and 2010 exclusively in Ames, Iowa.
 
 
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-## Dataset Content
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace. 
-* The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
+<details>
+<summary>The dataset's variable names, meanings and units can be inspected below: </summary> 
 
 |Variable|Meaning|Units|
 |:----|:----|:----|
@@ -80,41 +55,74 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 |YearRemodAdd|Remodel date (same as construction date if no remodelling or additions)|1950 - 2010|
 |SalePrice|Sale Price|34900 - 755000|
 
+</details>
+
+## Business Requirements 📋
+
+Our client 'Lydia Doe' who is based in Belgium, has inherited four houses located in Ames, Iowa, from their great-grandfather. They are requesting help to maximise the sales price for these properties.
+
+1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
+
+2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
+## Hypothesis and How To Validate 💡
+
+List here your project hypothesis(es) and how you envision validating it (them).
+1. 
+
+2. 
+
+3. 
 
 
-## Business Requirements
-As a good friend, you are requested by your friend, who has received an inheritance from a deceased great-grandfather located in Ames, Iowa, to  help in maximising the sales price for the inherited properties.
+## Rationale ✍
 
-Although your friend has an excellent understanding of property prices in her own state and residential area, she fears that basing her estimates for property worth on her current knowledge might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. She found a public dataset with house prices for Ames, Iowa, and will provide you with that.
+- **Business Requirement 1:** Data Visualisation and Correlation Study
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+* As a client, I want to inspect the data related to the house records so that I can discover how the house attributes correlate with the sale price
+
+* As a client, I want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Sale Price so that I can discover how the house attributes correlate with the sale price
+
+* As a client, I want to plot the main variables against Sale Price to visualize insights so that I can discover how the house attributes correlate with the sale price.
+
+- **Business Requirement 2:** House Price Prediction
+
+* As a client, I want to predict the sale price for a given house in Ames, Iowa.  
+
+The rationale to map the business requirements to the Data Visualisations and ML tasks
+
+List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+
+## ML Business Case 📊
+
+In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+
+- We want an ML model to predict ...
+
+- Our ideal outcome is ...
+
+- The model success metrics are ... R VALUE
+
+- The output is defined ...
+
+- Heuristic ...
+
+- The training data ...
 
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them).
+## Dashboard Design 📐
 
+List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
 
+## Unfixed Bugs 🛠️
 
-## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
 
+## Deployment 🖥️
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
-
-
-
-## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
-
-## Deployment
 ### Heroku
 
 * The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
@@ -128,14 +136,13 @@ Although your friend has an excellent understanding of property prices in her ow
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+## Data Analysis and ML Libraries 📚
 
+Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+
+## Credits and Acknowledgments 💐
 
 ## Credits 
-
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
 ### Content 
 
@@ -148,8 +155,38 @@ Although your friend has an excellent understanding of property prices in her ow
 - The photos used on the home and sign-up page are from This Open Source site
 - The images used for the gallery page were taken from this other open-source site
 
-
-
-## Acknowledgements (optional)
+### Acknowledgements
 * In case you would like to thank the people that provided support through this project.
+
+
+
+
+
+1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
+
+1. In the terminal type <code>pip3 install jupyter</code>
+
+1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
+
+1. Open port 8888 preview or browser
+
+1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
+
+1. Click the button Not Trusted and choose Trust.
+
+Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
+
+
+## Cloud IDE Reminders
+
+To log into the Heroku toolbelt CLI:
+
+1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
+2. Scroll down to the *API Key* and click *Reveal*
+3. Copy the key
+4. In your Cloud IDE, from the terminal, run `heroku_config`
+5. Paste in your API key when asked
+
+You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+
 
