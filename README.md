@@ -5,15 +5,25 @@ Introduction information
 ---
 
 ## Contents
+
 * [Dataset Content](#dataset-content) 🗃️
+
 * [Business Requirements](#business-requirements) 📋
+
 * [Hypothesis and How To Validate](#hypothesis-and-how-to-validate) 💡
+
 * [Rationale](#rationale) ✍
+
 * [ML Business Case](#ml-business-case) 📊
+
 * [Dashboard Design](#dashboard-design) 📐
+
 * [Unfixed Bugs](#unfixed-bugs) 🛠️
+
 * [Deployment](#deployment) 🖥️
+
 * [Data Analysis and ML Libraries](#data-analysis-and-ml-libraries) 📚
+
 * [Credits and Acknowledgments](#credits-and-acknowledgments) 💐
 
 ## Dataset Content 🗃️
