@@ -4,6 +4,8 @@ from src.data_management import load_house_data, load_pkl_file, load_inherited_h
 from src.machine_learning.predictive_analysis_ui import predict_sale_price
 from datetime import date
 
+# Adapted from van-essa and Code Institute's Churnometer walkthrough project
+
 def page3_predict_body():
     # load predict sale_price files
     version = 'v1'
@@ -16,12 +18,19 @@ def page3_predict_body():
     # display client's query and its data
     st.info(
         f"#### Business Requirement 2\n"
-        f"* The client is interested to predict the house sale price for "
+        f"* The client is interested in predicting the house sale price for "
         f"her 4 inherited houses, and any other house in Ames, Iowa. ")
 
+    st.write("The table below represents the relevant data supplied by the client to predict Sale Price:")
+	
+    in_df = load_inherited_house_data()
+    filtered_df = in_df[["OverallQual", "GrLivArea", "TotalBsmtSF", "GarageArea", "YearBuilt", "YearRemodAdd"]]	
+		
+    st.write(filtered_df)
+
     st.write("---")
-    st.write("The data of the houses you want an estimated price for can be entered below. "
-			"If you are missing any values of the data set, they're set to median. ")
+    st.write("Enter the relevant values of the property below to generate a predicted Sale Price.\n"
+			"Missing values are autofilled as Median.")
 	
     # Generate Live Data
     X_live = DrawInputsWidgets()
@@ -31,18 +40,12 @@ def page3_predict_body():
         predict_sale_price(X_live, sale_price_features, sale_price_pipe)
 
     st.write("---")
-    st.write("Here is the info for the key values of the clients inherited houses. ")
-	
-    in_df = load_inherited_house_data()
-    filtered_df = in_df[["OverallQual", "GrLivArea", "TotalBsmtSF", "GarageArea", "YearBuilt", "YearRemodAdd"]]	
-		
-    st.write(filtered_df)
 
-    st.write("After running them through the prediction app, their estimated prices are the following. \n\n "
-			"* $126,449 \n"
-			"* $150,322 \n"
-			"* $170,148 \n"
-			"* $181,897 ")
+    st.write("The predicted Sales Price for our client's houses are: \n\n "
+			"* Property 1: $125,832 \n"
+			"* Property 2: $142,449 \n"
+			"* Property 3: $168,930 \n"
+			"* Property 4: $128,318 ")
 	
     st.write("---")
 
@@ -131,9 +134,6 @@ def DrawInputsWidgets():
             step= 1
 			)
 	X_live[feature] = st_widget
-
-
-	# st.write(X_live)
 
 	return X_live
                     
