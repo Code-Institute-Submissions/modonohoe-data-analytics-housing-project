@@ -105,15 +105,15 @@ List here your project hypothesis(es) and how you envision validating it (them).
 
 ## Rationale
 
-- **Business Requirement 1:** Data Visualisation and Correlation Study
+**Business Requirement 1:** Data Visualisation and Correlation Study
 
-* As a client, I want to inspect the data related to the house records so that I can discover how the house attributes correlate with the sale price
+* As a data analyst, I want to inspect the data related to the house records so that I can discover how the house attributes correlate with the sale price
 
-* As a client, I want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Sale Price so that I can discover how the house attributes correlate with the sale price
+* As a data analyst, I want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Sale Price so that I can discover how the house attributes correlate with the sale price
 
-* As a client, I want to plot the main variables against Sale Price to visualize insights so that I can discover how the house attributes correlate with the sale price.
+* As a data analyst, I want to plot the main variables against Sale Price to visualize insights so that I can discover how the house attributes correlate with the sale price.
 
-- **Business Requirement 2:** House Price Prediction
+**Business Requirement 2:** House Price Prediction
 
 * As a client, I want to predict the sale price for a given house in Ames, Iowa.  
 
@@ -125,34 +125,129 @@ List your business requirements and a rationale to map them to the Data Visualis
 
 In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
 
-- We want an ML model to predict ...
+1. What are the business requirements?
 
-- Our ideal outcome is ...
+* The client is interested in discovering how house attributes correlate with sale prices. Therefore, the client expects data visualizations of the correlated variables against the sale price.
 
-- The model success metrics are ... R VALUE
+* The client is interested in predicting the house sale prices from her 4 inherited houses, and any other house in Ames, Iowa.
 
-- The output is defined ...
+2. Is there any business requirement that can be answered with conventional data analysis?
 
-- Heuristic ...
+Yes, we can use conventional data analysis to investigate how house attributes are correlated with the sale prices.
 
-- The training data ...
+3. Does the client need a dashboard or an API endpoint?
+
+The client needs a dashboard
+
+4. What does the client consider as a successful project outcome?
+
+* A study showing the most relevant variables correlated to sale price.
+
+* Also, a capability to predict the sale price for the 4 inherited houses, as well as any other house in Ames, Iowa.
+
+5. Can you break down the project into Epics and User Stories?
+
+* Information gathering and data collection.
+* Data visualization, cleaning, and preparation.
+* Model training, optimization and validation.
+* Dashboard planning, designing, and development.
+* Dashboard deployment and release.
+
+6. Are there Ethical or Privacy concerns?
+
+No. The client found a public dataset.
+
+7. Does the data suggest a particular model?
+
+The data suggests a regressor where the target is the sale price.
+
+8. What are the model's inputs and intended outputs?
+
+The inputs are house attribute information and the output is the predicted sale price.
+
+9. What are the criteria for the performance goal of the predictions?
+
+We agreed with the client an R2 score of at least 0.75 on the train set as well as on the test set.
+
+10. How will the client benefit?
+
+The client will maximize the sales price for the inherited properties.
+
 
 
 ## Dashboard Design
 
 List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
 
-Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+### Page 1 
+### Project Summary
+* Project Terms & Jargon
+* Describe Project Dataset
+* State Business Requirements
+
+The Project Summary page outlines the project's terminology and jargon, provides a description of the dataset, and details the business requirements. Users can gain a comprehensive overview of the project here, along with access to the readme file and a link to the dataset on Kaggle.
+
+The variable for the dataset are explained in detail:
+
+![dashboard one](static/images/readme/dash1.png)
+
+### Page 2
+### Sale Price Study
+* Initially, our goal for this page was to fulfill Business Requirement 1, though the specific plots to be featured were undetermined until after analysis. 
+
+* After data analysis, the client agreed that the page will show: 
+
+    * data inspection on house attributes
+    
+    ![dashboard two](static/images/readme/dash2-1.png)
+
+    * highlight the most correlated/relevant variables to Sale Price and the conclusions
+    
+    ![dashboard two](static/images/readme/dash2-2.png)
+
+    * include individual plots showing these
+    
+    ![dashboard two](static/images/readme/dash2-3.png)
+    
+    * other relevant plots highlight relationship to Sale Price
+
+    ![dashboard two](static/images/readme/dash2-4.png)
+
 
 ## Unfixed Bugs
 
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+Upon deployment, Heroku no longer supports the Python version 3.8 in it's Heroku-22 stack. 
+
+The stack was manually changed in the terminal to Heroku-20 using the following command: `heroku stack:set heroku-20 -a your-project-name`
+
+However this will become obsolete on 24th December 2024 so will need to be fixed.
+
+* Many functions developed by Code Institute's team were used in my project to conduct analysis and explore the data. They did not result in any bugs except when I would enter the wrong data type or misspell a variable name.
+
+* One 'bug' I encountered when training my ML model was using too many parameters which resulted in a potential 9 and a half day wait time to see the results for my ExtraTreesRegressor model! I changed my approach to exploring the various parameters using the documentation but only applying 5-6 parameters at a time instead of my inital 25.
+
 
 ## Deployment
 
+The main branch of this repository has been used for the deployed version of this application.
+
+### Using Github & CodeAnywhere
+
+This data application was adapted from the [Code Institute Full Template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues).
+
+- Click the `Use This Template` button.
+- Add a repository name and brief description.
+- Click the `Create Repository from Template` to create your repository.
+- Then login in to Code Anywhere and set up a new workspace using the repository URL.
+-  Commit your work often and have clear/explanatory messages, use the following commands to make your commits:
+    - `git add .`: adds all modified files to a staging area
+    - `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
+    - `git push`: pushes all your committed changes to your Github repository.
+
+
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: [live link](https://pp5-heritage-housing-b229271be179.herokuapp.com/)
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -161,59 +256,31 @@ You will need to mention unfixed bugs and why they were not fixed. This section 
 3. Select your repository name and click Search. Once it is found, click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+
 
 ## Data Analysis and ML Libraries
 
-Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+* [Pandas](https://pandas.pydata.org/) for data analysis, exploration, manipulation and visualization e.g.e create dataframes throughout the Jupyter Notebooks
+* [NumPy](https://numpy.org/) was used to process arrays and data 
+* [Matplotlib](https://matplotlib.org/) for graphs and plots
+* [Seaborn](https://seaborn.pydata.org/) to visualize the data in the Streamlit app with graphs and plots
+* [ML: Scikit-learn](https://scikit-learn.org/stable/) used when creating the ML pipeline, applying algorithms and feature engineering
 
 ## Credits and Acknowledgments
 
-## Credits 
+### Content
 
-### Content 
+* This project was adapted from Code Institute's ['Churnometer'](https://github.com/Code-Institute-Solutions/churnometer) walkthrough project.
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open Source site
-- The images used for the gallery page were taken from this other open-source site
+* Media are screenshots from my notebooks and dashboard.
 
-### Acknowledgements
-* In case you would like to thank the people that provided support through this project.
+## Credits 
 
-
-
-
-
-1. Open a new terminal and <code>pip3 install -r requirements.txt</code>
-
-1. In the terminal type <code>pip3 install jupyter</code>
-
-1. In the terminal type <code>jupyter notebook --NotebookApp.token='' --NotebookApp.password=''</code> to start the jupyter server.
-
-1. Open port 8888 preview or browser
-
-1. Open the jupyter_notebooks directory in the jupyter webpage that has opened and click on the notebook you want to open.
-
-1. Click the button Not Trusted and choose Trust.
-
-Note that the kernel says Python 3. It inherits from the workspace so it will be Python-3.8.12 as installed by our template. To confirm this you can use <code>! python --version</code> in a notebook code cell.
-
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-
+* [Alexander Hess](https://youtu.be/VSeGseoJsNA?feature=shared) walkthrough videos helped to deepen my understanding of data manipulation and inspired me to plot binary variables in my 3rd JupyTer notebook.
+* The #project-portfolio-5-predictive-analytics
+slack channel was a wealth of information.
+* My mentor for this project Marcel who greatly helped me in planning this project.
+* Code Institute Alumni [Vasilica Pavaloi](https://github.com/Vasi012/PP5-Predictive-Analysis/tree/main) and [Vanessa Andersson](https://github.com/van-essa) who's projects inspired me throughout this process.
