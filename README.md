@@ -26,7 +26,7 @@ Introduction information
 
 * [Credits and Acknowledgments](#credits-and-acknowledgments)
 
-## Dataset Content 🗃️
+## Dataset Content
 
 The dataset is sourced from [Kaggle](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data). 
 
@@ -67,7 +67,7 @@ The dataset includes data for houses built between 1872 and 2010 exclusively in 
 
 </details>
 
-## Business Requirements 📋
+## Business Requirements
 
 Our client 'Lydia Doe' who is based in Belgium, has inherited four houses located in Ames, Iowa, from their great-grandfather. They are requesting help to maximise the sales price for these properties.
 
@@ -76,7 +76,7 @@ Our client 'Lydia Doe' who is based in Belgium, has inherited four houses locate
 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
-## Hypothesis and How To Validate 💡
+## Hypothesis and How To Validate
 
 List here your project hypothesis(es) and how you envision validating it (them).
 1. 
@@ -86,7 +86,7 @@ List here your project hypothesis(es) and how you envision validating it (them).
 3. 
 
 
-## Rationale ✍
+## Rationale
 
 - **Business Requirement 1:** Data Visualisation and Correlation Study
 
@@ -104,7 +104,7 @@ The rationale to map the business requirements to the Data Visualisations and ML
 
 List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 
-## ML Business Case 📊
+## ML Business Case
 
 In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
 
@@ -121,17 +121,17 @@ In the previous bullet, you potentially visualised an ML task to answer a busine
 - The training data ...
 
 
-## Dashboard Design 📐
+## Dashboard Design
 
 List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
 
 Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
 
-## Unfixed Bugs 🛠️
+## Unfixed Bugs
 
 You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
 
-## Deployment 🖥️
+## Deployment
 
 ### Heroku
 
@@ -146,11 +146,11 @@ You will need to mention unfixed bugs and why they were not fixed. This section 
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
-## Data Analysis and ML Libraries 📚
+## Data Analysis and ML Libraries
 
 Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
 
-## Credits and Acknowledgments 💐
+## Credits and Acknowledgments
 
 ## Credits 
 
