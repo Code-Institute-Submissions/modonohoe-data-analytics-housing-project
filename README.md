@@ -1,6 +1,12 @@
 # Predicting Housing Prices 
 
-Introduction information
+![Dashboard Preview](static/images/readme/am-i-responsive.png)
+
+Link to the [live dashboard](https://pp5-heritage-housing-b229271be179.herokuapp.com/) 
+
+This is my 5th Portfolio Project submission for Code Institute's Diploma in Full Stack Development course as part of my specialization module 'Predictive Analytics'.
+
+This project is based on a fictional and hypothetical situation and client. The housing price predictor featured in the dashboard app should not be relied on in the prediction of any actual houses.
 
 ---
 
@@ -79,11 +85,22 @@ Our client 'Lydia Doe' who is based in Belgium, has inherited four houses locate
 ## Hypothesis and How To Validate
 
 List here your project hypothesis(es) and how you envision validating it (them).
-1. 
 
-2. 
+1.  Houses that have the greatest overall Living Space would have a higher SalePrice
 
-3. 
+* Correlation Study
+
+2. Newer builds have a better Overall Quality in terms of finishings and materials which in turn increases SalePrice.
+
+* Correlation Study
+
+3. Houses with more storeys have a higher SalePrice.
+
+* Create a binary variable and plot 2nd storey ownership against single storey.
+
+4. Houses with larger Square Foot of Basement space generally have a higher Sale Price. 
+
+* Correlation Study
 
 
 ## Rationale
