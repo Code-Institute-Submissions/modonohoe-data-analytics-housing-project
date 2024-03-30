@@ -5,20 +5,18 @@ def page1_summary_body():
     st.write("### Project Summary")
 
     # text based on README file - "Dataset Content" section
-    """"Project Dataset"""
     st.info(
         f"**Project Terms & Jargon**\n"
         f"* The dataset is sourced from **[Kaggle]"
         f"(https://www.kaggle.com/codeinstitute/housing-prices-data)** "
-        f"provided by Code Institute.\n"
-        f"**Project Dataset**\n"
+        f"provided by Code Institute.\n\n"
         f"* The dataset consists of 1,461 rows each and represents houses "
-        f"in from Ames, Iowa. \n"
-        f"* The dataset typically contains a house profile, "
-        f"ie. Floor Area, Basement, Garage, Kitchen, Lot, Porch, "
+        f"in the town of Ames, Iowa. \n\n"
+        f"* The dataset consists of columns of variables relating to the composition of each house "
+        f"e.g. Floor Area, Basement, Garage, Kitchen, Lot, Porch, "
         f"Wood Deck, Year Built "
-        f"and their respective Sale Price."
-        f"The houses in this dataset were built between 1872 and 2010.\n\n"
+        f"and their respective Sale Price. \n\n"
+        f"* The houses in this dataset were built between 1872 and 2010.\n\n"
         f"* **SalePrice** is the price a house sold for and is our target variable.\n\n"
     )
 
@@ -84,17 +82,17 @@ def page1_summary_body():
     
     # Link to README file, so the users can have access to full project documentation
     st.write(
-        f"For additional information, please visit and **read** the "
-        f"**[Project's README file](https://github.com/modonohoe/data-analytics-housing-project)**.")
+        f"\n\n For additional information, please visit and **read** the "
+        f"**[Project's README file](https://github.com/modonohoe/data-analytics-housing-project)**. \n\n")
     
      # copied from README file - "Business Requirements" section
     st.success(
-        f"#### The project has two business requirements:\n\n"
+        f"#### The project has 2 business requirements: \n\n"
         f"**1.**  The client is interested in discovering how house attributes correlate with "
         f"the house Sale Price. Therefore, the client expects data visualizations "
         f"of the correlated variables against Sale Price to show that.\n\n"
-        f"**2.** The client is interested to predict the house sales price from their 4 "
-        f"inherited houses, and any other house in Ames, Iowa. "
+        f"**2.** The client is interested in predicting the house sale price from her four "
+        f"inherited houses and any other house in Ames, Iowa. "
         )
 
 # The code above was copied from the Churnometer Project from Code Institute 

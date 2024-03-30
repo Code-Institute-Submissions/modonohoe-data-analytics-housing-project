@@ -8,7 +8,7 @@ from app_pages.page3_predict import page3_predict_body
 from app_pages.page4_hypothesis_and_validation import page4_hypothesis_and_validation_body
 from app_pages.page5_ml_predict import page5_ml_predict_body
 
-app = MultiPage(app_name= "Heritage Housing") # Create an instance of the app 
+app = MultiPage(app_name= "PP5 - Sale Price Predictor") # Create an instance of the app 
 
 # Add your app pages here using .add_page()
 app.app_page("Project Summary", page1_summary_body)
