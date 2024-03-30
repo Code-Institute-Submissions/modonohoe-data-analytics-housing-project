@@ -18,29 +18,31 @@ def page5_ml_predict_body():
     y_test =  pd.read_csv(f"outputs/ml_pipeline/predict_sale_price/{version}/y_test.csv")
 
     
-    st.write("### ML Pipeline: Predict House Price")
+    st.write("### ML Pipeline: Predict Sale Price")
     # Display pipeline training summary conclusions
     st.info(
-        f"* We wanted a **Regressor** model to predict the **`Sale Price`** for the houses. "
-        f"Our target **R2 score was above 0.7**, and we tried improving "
-        f"the score using a **PCA Regressor** model but with no success.\n"
-
+        f"* A **Regressor** model was chosen to predict the **`Sale Price`** for the houses. \n \n"
+        f"* The **ExtraTreesRegressor** model returned the best initial R2 score of 0.82. \n"
+        f"* The client has requested a model with at least an R2 of 0.75. \n"
+        f"* A **PCA Regressor** was added to the model but this resulted in a very "
+        f"high R2 for the train set but saw a marked decrease in the performance of "
+        f"the test set of data which means it was overfitting and not appropriate. \n"
         f"* The data for the pipeline was tuned by taking several steps "
         f"to clean and engineer it. The highest performing steps "
         f"and hyperparameters on the most critical features "
         f"are listed below: ")
-    st.write("---")
 
     # Show pipeline steps
-    st.write("* ML Pipeline To Predict Sale Price")
+    st.write("#### ML Pipeline To Predict Sale Price")
+    
+    st.info(
+        f"* Numerical Transformations and addressing outliers maximum values: \n \n")
     st.code(sale_price_pipe)
-    st.write("---")
 
     # Show best features
     st.write("* The Features The Model Was Trained And Their Importance")
     st.write(X_train.columns.to_list())
     st.image(sale_price_importance)
-    st.write("---")
 
     # evaluate performance on both sets
     
@@ -49,6 +51,8 @@ def page5_ml_predict_body():
                         X_test=X_test, y_test=y_test,
                         pipeline=sale_price_pipe)
 
+    st.success(
+        f"* The resulting R2 value for our model on unseen data is 0.84 and satisfies our clients request.")
 
 
 # The code above was copied from the Churnometer Project from Code Institute 
