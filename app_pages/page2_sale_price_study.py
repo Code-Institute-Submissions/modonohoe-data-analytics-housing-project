@@ -3,17 +3,19 @@ from src.data_management import load_house_data
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_style("whitegrid")
+sns.set_theme(context='notebook', style='darkgrid', palette='flare')
 
-
+# functions taken from 2nd Jupyter Notebook
+def plot_yearbuilt_saleprice_quality(df):
+    sns.lmplot(data=df, x='YearBuilt', y='SalePrice', ci=None, hue='OverallQual',
+               height=7, aspect=1.5, palette='viridis')
+    plt.title('SalePrice vs. YearBuilt (Colored by OverallQuality)', fontsize=20)
+    st.pyplot(plt)
+    plt.clf()
 
 def page2_sale_price_study_body():
-
-    
-    # load data
-    df = load_house_data()
-
-    # hard copied from churned customer study notebook
+    df = load_house_data()  
+    target_var = 'SalePrice'
     vars_to_study = ['OverallQual', 'GrLivArea', 'YearBuilt', '1stFlrSF', 'GarageArea']
 
     st.write("### House Sale Price Study")
@@ -53,40 +55,35 @@ def page2_sale_price_study_body():
         f"* It does not appear that having your garage retrofitted has any notable effect "
         f"on Sales Price. There is an overall indication however, that 'newer' houses "
         f"built more recently result in a higher Sales Price. \n"
-        f"* Finally, houses with larger basements ('TotalBsmtSF') and garages ('GarageArea') "
+        f"*Finally, houses with larger basements ('TotalBsmtSF') and garages ('GarageArea') "
         f"are generally shown to increase the Sale Price"
     )
 
-    # Individual plots per variable
-    if st.checkbox("Sale Price Correlation Per Variable"):
-        df_eda = df.filter(vars_to_study + ['SalePrice'])
-        target_var = 'SalePrice'
-        regr_level_per_variable(df_eda, target_var)
+    if st.checkbox("Show Regression Plots"):
+            regr_level_per_variable(df, target_var, vars_to_study)
 
-    if st.checkbox("Overall Quality Correlation Against Year Built"):
-        quality_to_study = ['SalePrice', 'YearBuilt']
-        df_eda = df.filter(quality_to_study + ['OverallQual'])
-        target_var = 'OverallQual'
-        regr_level_per_variable(df_eda, target_var)
-
-    if st.checkbox("Houses Of Similar Area Colored by Overall Quality"):
-        fig, axes = plt.subplots(figsize=(8, 5))
-        fig = sns.lmplot(data=df, x="GrLivArea", y="SalePrice", ci=None, hue='OverallQual')
-        plt.title(f"Sale Price by General Living Area and OverallQual", fontsize=20,y=1.05)
-        st.pyplot(fig) 
-
-
-def regr_level_per_variable(df_eda, target_var):
-    
-    for col in df_eda.drop([target_var], axis=1).columns.to_list():
-            plot_numerical(df_eda, col, target_var)
-
+    if st.checkbox("Show SalePrice vs. YearBuilt (Colored by Overall Quality)"):
+        plot_yearbuilt_saleprice_quality(df)
 
 def plot_numerical(df, col, target_var):
-    fig, axes = plt.subplots(figsize=(8, 5))
-    fig = sns.lmplot(data=df, x=col, y=target_var, ci=None) 
-    plt.title(f"{col}", fontsize=20,y=1.05)
-    st.pyplot(fig)
+    plt.figure(figsize=(8, 5))
+    sns.regplot(data=df, x=col, y=target_var, line_kws={"color": "red", "linewidth": 1})
+    plt.title(f"{col} vs {target_var}", fontsize=20, y=1.05)
+    st.pyplot(plt)  # Render the plot in Streamlit
+    plt.clf() 
 
+
+def regr_level_per_variable(df_eda, target_var, vars_to_study):
+    for col in vars_to_study:
+        plot_numerical(df_eda, col, target_var)
+        st.write("\n")
+
+
+def main():
+    st.title('Numerical Data Visualization')
+    page2_sale_price_study_body()  # Call the function that contains the study body and visualization logic
+
+if __name__ == "__main__":
+    main()
 # The code above was copied from the Churnometer Project from Code Institute 
 # with some adjustments
